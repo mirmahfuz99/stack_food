@@ -5,6 +5,7 @@ import 'package:stack_food/presentation/screens/home/widgets/category.dart';
 import 'package:stack_food/presentation/screens/home/widgets/food_campaign.dart';
 import 'package:stack_food/presentation/screens/home/widgets/popular_food.dart';
 import 'package:stack_food/presentation/screens/home/widgets/search_header.dart';
+import '../../../core/constants/strings.dart';
 import '../../../core/helper/helpers.dart';
 import '../../../data/model/config_model.dart';
 import 'widgets/home_slider.dart';
@@ -45,7 +46,7 @@ class HomeScreen extends GetView<HomeController> {
                       color: Colors.grey,
                     ),
                     Text(
-                      " 76A eight evenue, New York, US",
+                      homeTitle,
                       style: TextStyle(
                         color: Colors.grey.shade700,
                       ),
@@ -74,9 +75,12 @@ class HomeScreen extends GetView<HomeController> {
             Gaps.verticalGapOf(10.0),
             if(configModel.baseUrls != null)
             HomeSlider(bannerImageUrl: configModel.baseUrls!.bannerImageUrl!,),
-            Categories(categoryImageUrl:  configModel.baseUrls!.categoryImageUrl!,),
-            PopularFood(productUrl:  configModel.baseUrls!.productImageUrl!,),
-            FoodCampaign(campaignImageUrl:  configModel.baseUrls!.campaignImageUrl!,),
+            if(configModel.baseUrls != null)
+              Categories(categoryImageUrl:  configModel.baseUrls!.categoryImageUrl!,),
+            if(configModel.baseUrls != null)
+              PopularFood(productUrl:  configModel.baseUrls!.productImageUrl!,),
+            if(configModel.baseUrls != null)
+              FoodCampaign(campaignImageUrl:  configModel.baseUrls!.campaignImageUrl!,),
             Gaps.verticalGapOf(80.0),
 
           ],

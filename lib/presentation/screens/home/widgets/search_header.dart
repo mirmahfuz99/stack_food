@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../../../core/constants/strings.dart';
 
 
 class SearchHeader extends StatelessWidget {
@@ -20,11 +21,11 @@ class SearchHeader extends StatelessWidget {
               BoxShadow(
                 color: Colors.grey.withOpacity(0.3),
                 blurRadius: 4,
-                offset: Offset(0, 2), // changes position of shadow
+                offset: const Offset(0, 2), // changes position of shadow
               ),
             ],
           ),
-          padding: EdgeInsets.all(3.0),
+          padding: const EdgeInsets.all(3.0),
           child: TextField(
             controller: searchController,
             textAlignVertical: TextAlignVertical.center,
@@ -37,7 +38,7 @@ class SearchHeader extends StatelessWidget {
                   Icons.search_sharp,
                   color: Colors.grey,
                 ),
-                hintText: "Ladies Tops",
+                hintText: searchHint,
                 hintStyle: TextStyle(
                   color: Colors.grey,
                 )

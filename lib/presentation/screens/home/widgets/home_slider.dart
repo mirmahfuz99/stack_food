@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stack_food/presentation/screens/home/widgets/pager_dots.dart';
@@ -12,6 +11,11 @@ class HomeSlider extends GetView<SliderIndicatorController> {
 
   @override
   Widget build(BuildContext context) {
+    return _buildHomeSlider();
+  }
+
+  //buildHome Slider
+  Widget _buildHomeSlider(){
     return GetX<SliderIndicatorController>(
       initState: (state){
         Get.find<SliderIndicatorController>().getBannerData();
@@ -20,21 +24,21 @@ class HomeSlider extends GetView<SliderIndicatorController> {
         List<Banners>? banners = _.bannersModel.banners;
         if(banners != null) {
           return  Column(
-          children: [
-            SliderItem(banners: banners,bannerImageUrl: bannerImageUrl,),
-            const SizedBox(height: 7.0,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                  banners.length,
-                      (index) => PagerDot(index: index, currentIndex: controller.currentSlider.value)),
-            ),
-          ],
-        );
+            children: [
+              SliderItem(banners: banners,bannerImageUrl: bannerImageUrl,),
+              const SizedBox(height: 7.0,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(
+                    banners.length,
+                        (index) => PagerDot(index: index, currentIndex: controller.currentSlider.value)),
+              ),
+            ],
+          );
         }
         return const SizedBox();
       },
     );
-  }
+ }
 }
 

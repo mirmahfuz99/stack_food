@@ -11,41 +11,47 @@ class PopularFood extends GetView<PopularFoodController> {
 
   @override
   Widget build(BuildContext context) {
+    return _buildWidget();
+  }
+
+  //build popularFood Widget
+  Widget _buildWidget(){
     return GetX<PopularFoodController>(
       initState: (state){
         Get.find<PopularFoodController>().getPopularData();
       },
       builder: (_){
         List<Products>? products = _.popularModel.products;
-        if(products!.isNotEmpty) {
+        if(products != null) {
           return Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                MediumText(
-                  fontSize: 15.0,
-                  text: "Popular Food Nearby",color: Colors.black,),
-                SeeAll(),
-              ],
-            ),
-
-            Container(
-              height: 278.0,
-              child: ListView.builder(
-                  itemCount: products.length,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (BuildContext context,int index){
-                    return Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ProductItem(products: products.elementAt(index), productUrl: productUrl),
-                    );
-                  }
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  MediumText(
+                    fontSize: 15.0,
+                    text: "Popular Food Nearby",color: Colors.black,),
+                  SeeAll(),
+                ],
               ),
-            ),
-          ],
-        );
+
+              Container(
+                height: 278.0,
+                child: ListView.builder(
+                    itemCount: products.length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (BuildContext context,int index){
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ProductItem(products: products.elementAt(index), productUrl: productUrl),
+                      );
+                    }
+                ),
+              ),
+            ],
+          );
         }
+        //loader will be implemented here
         return const SizedBox();
       },
     );

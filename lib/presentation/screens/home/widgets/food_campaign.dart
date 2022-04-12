@@ -17,7 +17,7 @@ class FoodCampaign extends GetView<FoodCampaignController> {
       },
       builder: (_){
         List<Campaigns>? campaignsList = _.campaignsModel.campaignsList;
-        if(campaignsList!.isNotEmpty) {
+        if(campaignsList != null) {
           return Column(
             children: [
               Row(
@@ -45,6 +45,7 @@ class FoodCampaign extends GetView<FoodCampaignController> {
             ],
           );
         }
+        //loader will be implemented here
         return const SizedBox();
       },
     );
