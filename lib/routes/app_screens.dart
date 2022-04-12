@@ -11,7 +11,7 @@ class AppPages {
     GetPage(
       name: Routes.landingScreen,
       page: () => const BottomNavScreen(),
-      binding: BottomNavBinding(),
+      binding: InitialControllerBinding(),
     ),
     GetPage(
       name: Routes.homeScreen,

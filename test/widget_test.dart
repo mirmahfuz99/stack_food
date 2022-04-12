@@ -24,7 +24,7 @@ void main() {
      */
 
      // CampaignsModel campaignsModel = await HomeContentApiClient(httpClient: http.Client()).getFoodCampaignData();
-     RestaurantModel restaurantModel = await HomeContentApiClient(httpClient: http.Client()).getRestaurantData();
-     print(restaurantModel.restaurants!.length);
+     // RestaurantModel restaurantModel = await HomeContentApiClient(httpClient: http.Client()).getRestaurantData();
+     // print(restaurantModel.restaurants!.length);
   });
 }

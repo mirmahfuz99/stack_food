@@ -1,16 +1,11 @@
 class BannersModel {
-  List<Campaigns>? campaigns;
+
   List<Banners>? banners;
 
-  BannersModel({this.campaigns, this.banners});
+  BannersModel({ this.banners});
 
   BannersModel.fromJson(Map<String, dynamic> json) {
-    if (json['campaigns'] != null) {
-      campaigns = <Campaigns>[];
-      json['campaigns'].forEach((v) {
-        campaigns!.add(Campaigns.fromJson(v));
-      });
-    }
+
     if (json['banners'] != null) {
       banners = <Banners>[];
       json['banners'].forEach((v) {
@@ -21,9 +16,6 @@ class BannersModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.campaigns != null) {
-      data['campaigns'] = this.campaigns!.map((v) => v.toJson()).toList();
-    }
     if (this.banners != null) {
       data['banners'] = this.banners!.map((v) => v.toJson()).toList();
     }
@@ -31,67 +23,6 @@ class BannersModel {
   }
 }
 
-class Campaigns {
-  int? id;
-  String? title;
-  String? image;
-  String? description;
-  int? status;
-  Null? adminId;
-  String? createdAt;
-  String? updatedAt;
-  String? startTime;
-  String? endTime;
-  String? availableDateStarts;
-  String? availableDateEnds;
-
-  Campaigns(
-      {this.id,
-        this.title,
-        this.image,
-        this.description,
-        this.status,
-        this.adminId,
-        this.createdAt,
-        this.updatedAt,
-        this.startTime,
-        this.endTime,
-        this.availableDateStarts,
-        this.availableDateEnds});
-
-  Campaigns.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    title = json['title'];
-    image = json['image'];
-    description = json['description'];
-    status = json['status'];
-    adminId = json['admin_id'];
-    createdAt = json['created_at'];
-    updatedAt = json['updated_at'];
-    startTime = json['start_time'];
-    endTime = json['end_time'];
-    availableDateStarts = json['available_date_starts'];
-    availableDateEnds = json['available_date_ends'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['title'] = this.title;
-    data['image'] = this.image;
-    data['description'] = this.description;
-    data['status'] = this.status;
-    data['admin_id'] = this.adminId;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
-    data['start_time'] = this.startTime;
-    data['end_time'] = this.endTime;
-    data['available_date_starts'] = this.availableDateStarts;
-    data['available_date_ends'] = this.availableDateEnds;
-
-    return data;
-  }
-}
 
 class Banners {
   int? id;
